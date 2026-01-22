@@ -1,0 +1,66 @@
+{
+  "id": "pHtD86spfnYmzPNM0HwnD",
+  "name": "My workflow 2",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "2567e1e9-8d7c-45a7-be3a-819a3a91aacb",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "resource": "execution",
+        "filters": {},
+        "options": {},
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-base.n8n",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "9105394e-7410-4afe-bdd2-5a094f679099",
+      "name": "Get many executions",
+      "credentials": {
+        "n8nApi": {
+          "id": "CPP8IxfNt4XLpero",
+          "name": "n8n account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get many executions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "triggerCount": 0,
+  "versionId": "a926eba2-8d1a-4f44-8996-7c6b75a3fe55",
+  "owner": {
+    "type": "personal",
+    "projectId": "8fX5GQv00s07iQDB",
+    "projectName": "Stratos Tziallas <stratos.tziallas@n8n.io>",
+    "personalEmail": "stratos.tziallas@n8n.io"
+  },
+  "parentFolderId": null,
+  "isArchived": false
+}

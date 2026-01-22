@@ -1,0 +1,130 @@
+{
+  "id": "grXNc0R4oK2xE-BU7AsN8",
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "1a4e3de1-9a9d-4aed-96b8-1bb83a8a127d",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.redis",
+      "typeVersion": 1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "c68879f0-6de3-4638-841c-84e9104ea5e7",
+      "name": "Redis",
+      "credentials": {
+        "redis": {
+          "id": "2wUbFc7pmUPgLV6d",
+          "name": "Redis account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Loop over input items and add a new field called 'myNewField' to the JSON of each one\nfor (const item of $input.all()) {\n  item.json.myNewField = 1;\n}\n\nreturn $input.all();"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        416,
+        0
+      ],
+      "id": "0abc4af4-08ed-42be-9198-3ad2e1387ca3",
+      "name": "Code in JavaScript"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        624,
+        0
+      ],
+      "id": "7cc8ff16-dd48-42c5-82a9-ef7b77023367",
+      "name": "Wait",
+      "webhookId": "63457a7c-ac70-4a6f-8285-431825d3a226"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        832,
+        0
+      ],
+      "id": "f4b09ca5-d24a-4c01-bd06-32400bbee748",
+      "name": "No Operation, do nothing"
+    }
+  ],
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Redis",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Redis": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "triggerCount": 0,
+  "versionId": "bb046e21-6e2b-445d-89ff-ec30558c77ad",
+  "owner": {
+    "type": "personal",
+    "projectId": "8fX5GQv00s07iQDB",
+    "projectName": "Stratos Tziallas <stratos.tziallas@n8n.io>",
+    "personalEmail": "stratos.tziallas@n8n.io"
+  },
+  "parentFolderId": null,
+  "isArchived": false
+}

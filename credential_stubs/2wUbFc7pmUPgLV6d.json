@@ -1,0 +1,15 @@
+{
+  "id": "2wUbFc7pmUPgLV6d",
+  "name": "Redis account",
+  "type": "redis",
+  "data": {
+    "host": ""
+  },
+  "ownedBy": {
+    "type": "personal",
+    "projectId": "8fX5GQv00s07iQDB",
+    "projectName": "Stratos Tziallas <stratos.tziallas@n8n.io>",
+    "personalEmail": "stratos.tziallas@n8n.io"
+  },
+  "isGlobal": false
+}

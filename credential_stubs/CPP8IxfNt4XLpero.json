@@ -1,0 +1,16 @@
+{
+  "id": "CPP8IxfNt4XLpero",
+  "name": "n8n account",
+  "type": "n8nApi",
+  "data": {
+    "apiKey": "",
+    "baseUrl": ""
+  },
+  "ownedBy": {
+    "type": "personal",
+    "projectId": "8fX5GQv00s07iQDB",
+    "projectName": "Stratos Tziallas <stratos.tziallas@n8n.io>",
+    "personalEmail": "stratos.tziallas@n8n.io"
+  },
+  "isGlobal": false
+}
